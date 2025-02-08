@@ -3,7 +3,7 @@ import sharp from "sharp";
 export default function convertImage(format, req, res) {
   const imagePath = req.file.path;
   const imageName = path.basename(imagePath);
-  const renameImage = `storage/converted_image.${format}`;
+  const renameImage = `https://convert-images.onrender.com/convert/converted_image.${format}`;
   console.log("Body: ", format, renameImage);
 
   sharp(imagePath)

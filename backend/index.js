@@ -20,14 +20,10 @@ app.get("/", (req, res) => {
   res.render("formImage", { selectedFormat });
 });
 
-app.post(
-  "https://convert-images.onrender.com/convert",
-  upload.single("image"),
-  (req, res) => {
-    const { format } = req.body;
-    convertImage(format, req, res);
-  }
-);
+app.post("/convert", upload.single("image"), (req, res) => {
+  const { format } = req.body;
+  convertImage(format, req, res);
+});
 
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
